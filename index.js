@@ -1,9 +1,8 @@
 const express = require('express')
 const app = express()
-const books = require('./books.json')["books"]
-
 const port = process.env.PORT || 3000
 
+books = require('./books.json')["books"]
 const books3 = books.filter(d => d.category == '청소년');
 const books4 = books.filter(d => d.category == '좋은부모');
 const books5 = books.filter(d => d.category == '소설+시+희곡');
