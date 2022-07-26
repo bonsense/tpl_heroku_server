@@ -72,7 +72,7 @@ app.get('/%EA%B0%80%EC%A0%95+%EC%9A%94%EB%A6%AC+%EB%B7%B0%ED%8B%B0', (req, res) 
 app.get('/%EA%B1%B4%EA%B0%95+%EC%B7%A8%EB%AF%B8+%EB%A0%88%EC%A0%80', (req, res) => {
     res.send(books17)
 })
-app.get('/기타', (req, res) => {
+app.get('/%EA%B8%B0%ED%83%80', (req, res) => {
     res.send(books18)
 })
 
