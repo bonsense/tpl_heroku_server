@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 const books = require('./books.json')["books"]
-const books2 = books.filter(d => d.category == '%EC%96%B4%EB%A6%B0%EC%9D%B4');
+const books2 = books.filter(d => d.category == '어린이');
 const books3 = books.filter(d => d.category == '청소년');
 const books4 = books.filter(d => d.category == '좋은부모');
 const books5 = books.filter(d => d.category == '소설+시+희곡');
@@ -24,7 +24,7 @@ const books18 = books.filter(d => d.category != '어린이' && d.category != '�
 app.get('/', (req, res) => {
     res.send(books)
 })
-app.get('/어린이', (req, res) => {
+app.get('/%EC%96%B4%EB%A6%B0%EC%9D%B4', (req, res) => {
     res.send(books2)
 })
 app.get('/청소년', (req, res) => {
