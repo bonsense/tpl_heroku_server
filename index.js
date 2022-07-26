@@ -2,7 +2,8 @@ const express = require('express')
 var cors = require('cors')
 const app = express()
 app.use(cors())
-//Without Cors no access...
+//Without Cors, no access from websites.
+
 
 const port = process.env.PORT || 3000
 
