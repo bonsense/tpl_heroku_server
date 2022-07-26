@@ -1,19 +1,10 @@
-// const express = require('express')
+const express = require('express')
+var cors = require('cors')
 
-// const app = express()
-
-// const port = process.env.PORT || 3000
-
-const jsonServer = require('json-server')
-const app = jsonServer.create()
-const books = jsonServer.router('books.json')
-const middlewares = jsonServer.defaults()
-
-app.use(middlewares)
-app.use(books)
+const app = express()
+app.use(cors())
 
 const port = process.env.PORT || 3000
-
 
 // 
 // "all" = books
