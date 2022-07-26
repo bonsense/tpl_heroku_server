@@ -1,10 +1,8 @@
 const express = require('express')
 const app = express()
-const books = require('./books.json')
+const books = require('./books.json')["books"]
 
 const port = process.env.PORT || 3000
-
-books = books["books"]
 
 const books2 = books.filter(d => d.category === '어린이');
 const books3 = books.filter(d => d.category === '청소년');
@@ -78,7 +76,6 @@ app.get('/건강+취미+레저', (req, res) => {
 app.get('/기타', (req, res) => {
     res.send(books18)
 })
-
 
 app.listen(port, () => {
     console.log(`App is listening to port ${port}`)
