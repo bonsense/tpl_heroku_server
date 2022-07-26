@@ -5,12 +5,12 @@
 // const port = process.env.PORT || 3000
 
 const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('books.json')
+const app = jsonServer.create()
+const books = jsonServer.router('books.json')
 const middlewares = jsonServer.defaults()
 
-server.use(middlewares)
-server.use(router)
+app.use(middlewares)
+app.use(books)
 
 const port = process.env.PORT || 3000
 
