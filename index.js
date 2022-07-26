@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
-const books = require('./book.json').books
+const books = require('./book.json')
+books = books["books"]
 
-const port = process.env.PORT || 3000
 
 const books2 = books.filter(d => d.category === '어린이');
 const books3 = books.filter(d => d.category === '청소년');
@@ -22,7 +22,8 @@ const books16 = books.filter(d => d.category === '가정+요리+뷰티');
 const books17 = books.filter(d => d.category === '건강+취미+레저');
 const books18 = books.filter(d => d.category != '어린이' && d.category != '청소년' && d.category != '좋은부모' && d.category != '소설+시+희곡' && d.category != '에세이' && d.category != '인문학' && d.category != '사회과학' && d.category != '역사' && d.category != '과학' && d.category != '예술+대중문화' && d.category != '종교+역학' && d.category != '경제경영' && d.category != '자기계발' && d.category != '외국어' && d.category != '가정+요리+뷰티' && d.category != '건강+취미+레저');
 
-app.get('/all', (req, res) => {
+
+app.get('/', (req, res) => {
     res.send(books)
 })
 app.get('/어린이', (req, res) => {
