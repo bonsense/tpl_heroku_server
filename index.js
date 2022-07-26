@@ -1,6 +1,39 @@
-const express = require('express')
-const app = express()
+// const express = require('express')
+
+// const app = express()
+
+// const port = process.env.PORT || 3000
+
+const jsonServer = require('json-server')
+const server = jsonServer.create()
+const router = jsonServer.router('books.json')
+const middlewares = jsonServer.defaults()
+
+server.use(middlewares)
+server.use(router)
+
 const port = process.env.PORT || 3000
+
+
+// 
+// "all" = books
+// "어린이" = books
+// "청소년" = books
+// "좋은부모" = books
+// "소설/시/희곡" = books
+// "에세이",
+// "인문학",
+// "사회과학",
+// "역사",
+// "과학",
+// "예술/대중문화",
+// "종교/역학",
+// "경제경영",
+// "자기계발",
+// "외국어",
+// "가정/요리/뷰티",
+// "건강/취미/레저",
+// "기타"
 
 const books = require('./books.json')["books"]
 const books2 = books.filter(d => d.category == '어린이');
