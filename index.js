@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const books = require('./books.json')["books"][0]
+const books = require('./books.json')["books"]
 
 const port = process.env.PORT || 3000
 
