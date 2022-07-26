@@ -1,8 +1,7 @@
 const express = require('express')
 const app = express()
-const books = require('./book.json')
+const books = require('./books.json')
 books = books["books"]
-
 
 const books2 = books.filter(d => d.category === '어린이');
 const books3 = books.filter(d => d.category === '청소년');
