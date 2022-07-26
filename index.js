@@ -1,103 +1,102 @@
 const express = require('express')
 var cors = require('cors')
-
 const app = express()
 app.use(cors())
+//Without Cors no access...
 
 const port = process.env.PORT || 3000
 
-// 
 // "all" = books
-// "어린이" = books
-// "청소년" = books
-// "좋은부모" = books
-// "소설/시/희곡" = books
-// "에세이",
-// "인문학",
-// "사회과학",
-// "역사",
-// "과학",
-// "예술/대중문화",
-// "종교/역학",
-// "경제경영",
-// "자기계발",
-// "외국어",
-// "가정/요리/뷰티",
-// "건강/취미/레저",
-// "기타"
+// "어린이" = children
+// "청소년" = youngadult
+// "좋은부모" = parenting
+// "소설/시/희곡" = novelpoetryplay
+// "에세이" = essay
+// "인문학" = humanities
+// "사회과학" = sociology
+// "역사" = history
+// "과학" = science
+// "예술/대중문화" = artculture
+// "종교/역학" = religion
+// "경제경영" = economy
+// "자기계발" = selfhelp
+// "외국어" = foreignlanguage
+// "가정/요리/뷰티" = homecookbeauty
+// "건강/취미/레저" = healthleisure
+// "기타" = etc
 
 const books = require('./books.json')["books"]
-const books2 = books.filter(d => d.category == '어린이');
-const books3 = books.filter(d => d.category == '청소년');
-const books4 = books.filter(d => d.category == '좋은부모');
-const books5 = books.filter(d => d.category == '소설+시+희곡');
-const books6 = books.filter(d => d.category == '에세이');
-const books7 = books.filter(d => d.category == '인문학');
-const books8 = books.filter(d => d.category == '사회과학');
-const books9 = books.filter(d => d.category == '역사');
-const books10 = books.filter(d => d.category == '과학');
-const books11 = books.filter(d => d.category == '예술+대중문화');
-const books12 = books.filter(d => d.category == '종교+역학');
-const books13 = books.filter(d => d.category == '경제경영');
-const books14 = books.filter(d => d.category == '자기계발');
-const books15 = books.filter(d => d.category == '외국어');
-const books16 = books.filter(d => d.category == '가정+요리+뷰티');
-const books17 = books.filter(d => d.category == '건강+취미+레저');
-const books18 = books.filter(d => d.category != '어린이' && d.category != '청소년' && d.category != '좋은부모' && d.category != '소설+시+희곡' && d.category != '에세이' && d.category != '인문학' && d.category != '사회과학' && d.category != '역사' && d.category != '과학' && d.category != '예술+대중문화' && d.category != '종교+역학' && d.category != '경제경영' && d.category != '자기계발' && d.category != '외국어' && d.category != '가정+요리+뷰티' && d.category != '건강+취미+레저');
+const children = books.filter(d => d.category == '어린이');
+const youngadult = books.filter(d => d.category == '청소년');
+const parenting = books.filter(d => d.category == '좋은부모');
+const novelpoetryplay = books.filter(d => d.category == '소설+시+희곡');
+const essay = books.filter(d => d.category == '에세이');
+const humanities = books.filter(d => d.category == '인문학');
+const sociology = books.filter(d => d.category == '사회과학');
+const history = books.filter(d => d.category == '역사');
+const science = books.filter(d => d.category == '과학');
+const artculture = books.filter(d => d.category == '예술+대중문화');
+const religion = books.filter(d => d.category == '종교+역학');
+const economy = books.filter(d => d.category == '경제경영');
+const selfhelp = books.filter(d => d.category == '자기계발');
+const foreignlanguage = books.filter(d => d.category == '외국어');
+const homecookbeauty = books.filter(d => d.category == '가정+요리+뷰티');
+const healthleisure = books.filter(d => d.category == '건강+취미+레저');
+const etc = books.filter(d => d.category != '어린이' && d.category != '청소년' && d.category != '좋은부모' && d.category != '소설+시+희곡' && d.category != '에세이' && d.category != '인문학' && d.category != '사회과학' && d.category != '역사' && d.category != '과학' && d.category != '예술+대중문화' && d.category != '종교+역학' && d.category != '경제경영' && d.category != '자기계발' && d.category != '외국어' && d.category != '가정+요리+뷰티' && d.category != '건강+취미+레저');
 
 app.get('/all', (req, res) => {
     res.send(books)
 })
-app.get('/%EC%96%B4%EB%A6%B0%EC%9D%B4', (req, res) => {
-    res.send(books2)
+app.get('/children', (req, res) => {
+    res.send(children)
 })
-app.get('/%EC%B2%AD%EC%86%8C%EB%85%84', (req, res) => {
-    res.send(books3)
+app.get('/youngadult', (req, res) => {
+    res.send(youngadult)
 })
-app.get('/%EC%A2%8B%EC%9D%80%EB%B6%80%EB%AA%A8', (req, res) => {
-    res.send(books4)
+app.get('/parenting', (req, res) => {
+    res.send(parenting)
 })
-app.get('/%EC%86%8C%EC%84%A4+%EC%8B%9C+%ED%9D%AC%EA%B3%A1', (req, res) => {
-    res.send(books5)
+app.get('/novelpoetryplay', (req, res) => {
+    res.send(novelpoetryplay)
 })
-app.get('/%EC%97%90%EC%84%B8%EC%9D%B4', (req, res) => {
-    res.send(books6)
+app.get('/essay, (req, res) => {
+    res.send(essay)
 })
-app.get('/%EC%9D%B8%EB%AC%B8%ED%95%99', (req, res) => {
-    res.send(books7)
+app.get('/humanities', (req, res) => {
+    res.send(humanities)
 })
-app.get('/%EC%82%AC%ED%9A%8C%EA%B3%BC%ED%95%99', (req, res) => {
-    res.send(books8)
+app.get('/sociology', (req, res) => {
+    res.send(sociology)
 })
-app.get('/%EC%97%AD%EC%82%AC', (req, res) => {
-    res.send(books9)
+app.get('/history', (req, res) => {
+    res.send(history)
 })
-app.get('/%EA%B3%BC%ED%95%99', (req, res) => {
-    res.send(books10)
+app.get('/science', (req, res) => {
+    res.send(science)
 })
-app.get('/%EC%98%88%EC%88%A0+%EB%8C%80%EC%A4%91%EB%AC%B8%ED%99%94', (req, res) => {
-    res.send(books11)
+app.get('/artculture', (req, res) => {
+    res.send(artculture)
 })
-app.get('/%EC%A2%85%EA%B5%90+%EC%97%AD%ED%95%99', (req, res) => {
-    res.send(books12)
+app.get('/religion', (req, res) => {
+    res.send(religion)
 })
-app.get('/%EA%B2%BD%EC%A0%9C%EA%B2%BD%EC%98%81', (req, res) => {
-    res.send(books13)
+app.get('/economy', (req, res) => {
+    res.send(economy)
 })
-app.get('/%EC%9E%90%EA%B8%B0%EA%B3%84%EB%B0%9C', (req, res) => {
-    res.send(books14)
+app.get('/selfhelp', (req, res) => {
+    res.send(selfhelp)
 })
-app.get('/%EC%99%B8%EA%B5%AD%EC%96%B4', (req, res) => {
-    res.send(books15)
+app.get('/foreignlanguage', (req, res) => {
+    res.send(foreignlanguage)
 })
-app.get('/%EA%B0%80%EC%A0%95+%EC%9A%94%EB%A6%AC+%EB%B7%B0%ED%8B%B0', (req, res) => {
-    res.send(books16)
+app.get('/homecookbeauty', (req, res) => {
+    res.send(homecookbeauty)
 })
-app.get('/%EA%B1%B4%EA%B0%95+%EC%B7%A8%EB%AF%B8+%EB%A0%88%EC%A0%80', (req, res) => {
-    res.send(books17)
+app.get('/healthleisure', (req, res) => {
+    res.send(healthleisure)
 })
-app.get('/%EA%B8%B0%ED%83%80', (req, res) => {
-    res.send(books18)
+app.get('/etc', (req, res) => {
+    res.send(etc)
 })
 
 app.listen(port, () => {
