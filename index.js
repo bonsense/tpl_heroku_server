@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const playerData = require('./manutd.json')
+const book = require('./book.json')
 
 const port = process.env.PORT || 3000
 
@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/players', (req, res) => {
-    res.send(playerData)
+    res.send(book)
 })
 
 app.listen(port, () => {
